@@ -33,7 +33,7 @@ const MyRoutes = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MyWebLayout />}>
-          <Route path="home" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="nosotros" element={<NosotrosPage />} />
         </Route>
         <Route path="/auth" element={<MyAuthLayout />}>
@@ -76,7 +76,6 @@ const MyRoutes = () => {
           <Route path="404" element={<Error404Page />} />
           <Route path="500" element={<Error500Page />} />
         </Route>
-
         <Route path="*" element={<Navigate to="/errors/404" replace />} />
       </Routes>
     </BrowserRouter>

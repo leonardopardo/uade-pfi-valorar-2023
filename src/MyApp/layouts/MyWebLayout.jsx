@@ -4,13 +4,13 @@ import NavbarStandard from 'MyApp/components/pages/landing/NavbarStandard';
 import FooterStandard from 'MyApp/components/pages/landing/FooterStandard';
 
 const MyWebLayout = () => {
-    return(
-        <>
-        <NavbarStandard />
-        <Outlet />
-        <FooterStandard />
-      </>
-    )
+  return (
+    <>
+      <NavbarStandard />
+      <Outlet />
+      <FooterStandard />
+    </>
+  )
 };
 
 export default MyWebLayout;
