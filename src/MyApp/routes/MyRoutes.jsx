@@ -1,3 +1,4 @@
+//#region Imports
 import MyAppLayout from "MyApp/layouts/MyAppLayout";
 import MyAuthLayout from "MyApp/layouts/MyAuthLauout";
 import MyErrorLayout from "MyApp/layouts/MyErrorLayout";
@@ -19,14 +20,17 @@ import PrincipalPage from "MyApp/pages/home/PrincipalPage";
 import MessagesListPage from "MyApp/pages/mensajes/MessagesListPage";
 import NotificationListPage from "MyApp/pages/notification/NotificationListPage";
 import RoleListPage from "MyApp/pages/role/RoleListPage";
+import ContactoPage from "MyApp/pages/site/ContactoPage";
 import HomePage from "MyApp/pages/site/HomePage";
 import NosotrosPage from "MyApp/pages/site/NosotrosPage";
+import PrivacidadPage from "MyApp/pages/site/PrivacidadPage";
+import TerminosPage from "MyApp/pages/site/TerminosPage";
 import UserCreatePage from "MyApp/pages/user/UserEditPage";
 import UserEditPage from "MyApp/pages/user/UserEditPage";
 import UserListPage from "MyApp/pages/user/UserListPage";
-
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+//#endregion
 
 const MyRoutes = () => {
   return (
@@ -35,6 +39,9 @@ const MyRoutes = () => {
         <Route path="/" element={<MyWebLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="nosotros" element={<NosotrosPage />} />
+          <Route path="contacto" element={<ContactoPage />} />
+          <Route path="terminos" element={<TerminosPage />} />
+          <Route path="privacidad" element={<PrivacidadPage />} />
         </Route>
         <Route path="/auth" element={<MyAuthLayout />}>
           <Route path="forgot" element={<ForgotPage />} />

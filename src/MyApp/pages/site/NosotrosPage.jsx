@@ -7,16 +7,16 @@ const NosotrosPage = () => {
   return (
     <>
       <Image src={imageHeader} fluid />
-      <Container>
+      <Container className="my-5">
         <Row className="my-5 justify-content-center">
-          <Col xxl={3}>
+          <Col xs={12} sm={6} md={6} lg={4} xl={4} xxl={3}>
             <Image src={logo} fluid />
           </Col>
         </Row>
-        <Row>
+        <Row className="my-5">
           <Col>
             <h1>Nuestra Misión</h1>
-            <p>
+            <p className="text-justify">
               En <strong>Valorar</strong>, nuestra misión es revolucionar la
               industria inmobiliaria a través de la aplicación innovadora de la
               inteligencia artificial y el machine learning. Nos comprometemos a
@@ -27,8 +27,12 @@ const NosotrosPage = () => {
               precisos y asesoramiento experto, fortaleciendo así el éxito y la
               rentabilidad de nuestros clientes en el mercado de bienes raíces.
             </p>
+          </Col>
+        </Row>
+        <Row className="my-5">
+          <Col>
             <h1>Nuestra Visión</h1>
-            <p>
+            <p className="text-justify">
               En <strong>Valorar</strong>, aspiramos a ser líderes indiscutibles
               en el campo de la inteligencia artificial y el machine learning
               aplicados al sector inmobiliario. Visualizamos un mundo en el que
