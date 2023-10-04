@@ -8,8 +8,8 @@ import { isIterableArray } from 'helpers/utils';
 const Processes = () => (
   <Section>
     <SectionHeader
-      title="WebApp theme of the future"
-      subtitle="Built on top of Bootstrap 5, super modular Falcon provides you gorgeous design & streamlined UX for your WebApp."
+      title="Nuestra Propuesta de Valor"
+      subtitle="Conocé los beneficios de utilizar nuestra plataforma."
     />
     {isIterableArray(processList) &&
       processList.map((process, index) => (

@@ -33,7 +33,7 @@ const MyRoutes = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MyWebLayout />}>
-          <Route path="home" element={<HomePage />} /> 
+          <Route path="home" element={<HomePage />} />
           <Route path="nosotros" element={<NosotrosPage />} />
         </Route>
         <Route path="/auth" element={<MyAuthLayout />}>

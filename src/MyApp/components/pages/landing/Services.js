@@ -9,8 +9,8 @@ import SectionHeader from './SectionHeader';
 const Services = () => (
   <Section bg="light" className="text-center">
     <SectionHeader
-      title="Here's what's in it for you"
-      subtitle="Things you will get right out of the box with Falcon."
+      title="¿Qué es lo que tenemos para ofrecerte?"
+      subtitle="Te ofrecemos una gran variedad de servicios para que puedas elegir el que más se adapte a tus necesidades."
     />
     <Row className="mt-6">
       {serviceList.map((service, index) => (

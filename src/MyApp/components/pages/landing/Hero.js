@@ -3,7 +3,7 @@ import Typed from 'react-typed';
 import { Link } from 'react-router-dom';
 import { Row, Col, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import bg1 from 'assets/img/generic/bg-1.jpg';
+import bg1 from 'assets/img/generic/bg-6.jpg';
 import dashboard from 'assets/img/generic/dashboard-alt.png';
 import dashboardDark from 'assets/img/generic/dashboard-alt-dark.png';
 import Section from 'components/common/Section';
@@ -40,7 +40,8 @@ const Hero = () => {
             Probá Gratis Nuestra Demo
           </Button>
           <h1 className="text-white fw-light">
-            Inteligencia Artificial para
+            Inteligencia Artificial
+            <br /> para
             <Typed
               strings={['Calcular', 'Probar', 'Cotizar', 'Analizar']}
               typeSpeed={40}
@@ -61,7 +62,7 @@ const Hero = () => {
             className="border-2 rounded-pill mt-4 fs-0 py-2"
             to="#!"
           >
-            Registrate y Comenzá a trabajar como un Pro
+            Registrate y Comenzá
             <FontAwesomeIcon icon="play" transform="shrink-6 down-1 right-5" />
           </Button>
         </Col>

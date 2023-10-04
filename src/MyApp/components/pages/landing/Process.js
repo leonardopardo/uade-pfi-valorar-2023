@@ -18,8 +18,8 @@ const Process = ({
   return (
     <Row
       className={classNames('flex-center', {
-        'mt-7': !isFirst,
-        'mt-8': isFirst
+        'mt-4': !isFirst,
+        'mt-5': isFirst
       })}
     >
       <Col

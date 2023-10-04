@@ -31,7 +31,7 @@ const NavbarTopDropDownMenus = () => {
   };
   return (
     <>
-      <NavbarDropdown title="dashboard">
+      {/* <NavbarDropdown title="dashboard">
         {dashboardRoutes.children[0].children.map(route => (
           <Dropdown.Item
             key={route.name}
@@ -69,7 +69,7 @@ const NavbarTopDropDownMenus = () => {
             {route.name}
           </Dropdown.Item>
         ))}
-      </NavbarDropdown>
+      </NavbarDropdown> */}
     </>
   );
 };

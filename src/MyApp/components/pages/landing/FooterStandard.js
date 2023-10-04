@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import createMarkup from 'helpers/createMarkup';
 import Section from 'components/common/Section';
 import IconGroup from 'components/common/icon/IconGroup';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { blogPostList, menuList1, menuList2 } from 'data/footer';
 import { bgWhiteIcons } from 'data/socialIcons';
 import { version } from 'config';
+import logo from 'assets/img/illustrations/logo_white.svg';
 
 const FooterTitle = ({ children }) => (
   <h5 className="text-uppercase text-white opacity-85 mb-3">{children}</h5>
@@ -75,22 +76,21 @@ const FooterStandard = () => {
         </div>
         <Row>
           <Col lg={4}>
-            <FooterTitle>Nuestra Misión</FooterTitle>
+            <Image src={logo} alt="Valorar" className="mb-4" fluid />
+            {/* <FooterTitle>Nuestra Misión</FooterTitle> */}
             <p className="text-400">
-            En <strong>Valorar</strong>, nuestra misión es revolucionar la industria inmobiliaria 
-            a través de la aplicación innovadora de la inteligencia artificial y el machine learning. 
-            Nos comprometemos a proporcionar a nuestros clientes soluciones de vanguardia que optimicen 
-            la toma de decisiones, impulsen la eficiencia operativa y maximicen el valor de sus activos 
-            inmobiliarios. Trabajamos incansablemente para ofrecer servicios personalizados, datos 
-            precisos y asesoramiento experto, fortaleciendo así el éxito y la rentabilidad de nuestros 
-            clientes en el mercado de bienes raíces.
+              En <strong>Valorar</strong>, nuestra misión es revolucionar la industria inmobiliaria
+              a través de la aplicación innovadora de la inteligencia artificial y el machine learning.
+              Nos comprometemos a proporcionar a nuestros clientes soluciones de vanguardia que optimicen
+              la toma de decisiones, impulsen la eficiencia operativa y maximicen el valor de sus activos
+              inmobiliarios.
             </p>
             <IconGroup className="mt-4" icons={bgWhiteIcons} />
           </Col>
           <Col className="ps-lg-6 ps-xl-8">
             <Row className="mt-5 mt-lg-0">
               <Col xs={6} md={3}>
-                <FooterTitle>Company</FooterTitle>
+                <FooterTitle>Empresa</FooterTitle>
                 <FooterList list={menuList1} />
               </Col>
               <Col xs={6} md={3}>
@@ -112,8 +112,6 @@ const FooterStandard = () => {
           <Row className="justify-content-between">
             <Col xs={12} sm="auto">
               <p className="mb-0 text-600">
-                Thank you for creating with Falcon{' '}
-                <span className="d-none d-sm-inline-block">| </span>
                 <br className="d-sm-none" /> {new Date().getFullYear()} &copy;{' '}
                 <a
                   className="text-white opacity-85"
@@ -121,7 +119,7 @@ const FooterStandard = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  ThemeWagon
+                  Valorar.ar
                 </a>
               </p>
             </Col>

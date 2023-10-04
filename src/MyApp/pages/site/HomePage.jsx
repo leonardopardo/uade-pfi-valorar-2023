@@ -14,11 +14,9 @@ const HomePage = () => {
       <Hero />
       <Partners />
       <Processes />
-      <Container>
-        <PricingAlt />
-      </Container>
+      <PricingAlt />
       <Services />
-      <Testimonial />
+      {/* <Testimonial /> */}
       <Cta />
     </>
   );

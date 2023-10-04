@@ -10,7 +10,7 @@ const PricingAltHeader = () => {
         Mirá nuestras suscripciones.{' '}
         <br className="d-none d-md-block" /> Elegí la que mejor se adapte a tu negocio.
       </h3>
-      <Flex justifyContent="center">
+      {/* <Flex justifyContent="center">
         <FormCheck.Label htmlFor="custom-switch" className="me-2">
           Mensual
         </FormCheck.Label>
@@ -18,7 +18,7 @@ const PricingAltHeader = () => {
           <Form.Check.Input type="checkbox" defaultChecked />
           <Form.Check.Label className="ms-2 align-top">Anual</Form.Check.Label>
         </Form.Check>
-      </Flex>
+      </Flex> */}
     </Col>
   );
 };

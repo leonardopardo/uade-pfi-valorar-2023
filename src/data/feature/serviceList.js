@@ -1,20 +1,20 @@
 export default [
   {
-    media: { icon: ['fab', 'sass'], color: 'info', className: 'fs-4' },
-    title: 'Bootstrap 5.x',
+    media: { icon: ['fab', 'node-js'], color: 'info', className: 'fs-4' },
+    title: 'API',
     description:
-      "Build your webapp with the world's most popular front-end component library along with Falcon's 32 sets of carefully designed elements."
+      "Integreremos tu sitio web con una API para que puedas obtener datos de tu base de datos y mostrarlos en tu sitio web."
   },
   {
-    media: { icon: ['fab', 'node-js'], color: 'success', className: 'fs-5' },
-    title: 'SCSS & Javascript files',
+    media: { icon: ['fab', 'node-js'], color: 'info', className: 'fs-4' },
+    title: 'Dashboard',
     description:
-      'With your purchased copy of Falcon, you will get all the uncompressed & documented SCSS and Javascript source code files.'
+      'Desarrollaremos una API para que puedas obtener datos de tu base de datos y mostrarlos en tu sitio web.'
   },
   {
-    media: { icon: ['fab', 'gulp'], color: 'danger', className: 'fs-6' },
-    title: 'Gulp based workflow',
+    media: { icon: ['fab', 'node-js'], color: 'info', className: 'fs-4' },
+    title: 'SDK',
     description:
-      'All the painful or time-consuming tasks in your development workflow such as compiling the SCSS or transpiring the JS are automated.'
+      'Desarrollaremos una API para que puedas obtener datos de tu base de datos y mostrarlos en tu sitio web.'
   }
 ];

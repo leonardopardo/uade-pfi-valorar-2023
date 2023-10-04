@@ -19,7 +19,7 @@ const LandingRightSideNavItem = () => {
 
   return (
     <Nav navbar className="ms-auto">
-      <Nav.Item>
+      {/* <Nav.Item>
         <Nav.Link as={Link} to="/">
           <OverlayTrigger
             placement="bottom"
@@ -35,8 +35,8 @@ const LandingRightSideNavItem = () => {
           </OverlayTrigger>
           <span className={`d-${breakpoint}-none`}>Dashboard</span>
         </Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
+      </Nav.Item> */}
+      {/* <Nav.Item>
         <Nav.Link as={Link} to="/documentation/getting-started">
           <OverlayTrigger
             placement="bottom"
@@ -50,9 +50,9 @@ const LandingRightSideNavItem = () => {
               />
             </div>
           </OverlayTrigger>
-          <span className={`d-${breakpoint}-none`}>Cocumentación</span>
+          <span className={`d-${breakpoint}-none`}>Documentación</span>
         </Nav.Link>
-      </Nav.Item>
+      </Nav.Item> */}
       <NavDropdown title="Ingresar" align="end">
         <Card className="navbar-card-login shadow-none">
           <Card.Body className="fs--1 fw-normal p-4">

@@ -14,7 +14,7 @@ const PricingAlt = () => {
   );
   return (
     <>
-      <Card className="mb-3 shadow-none" bg='transparent'>
+      <Card className="mb-5 shadow-none" bg='transparent'>
         <Card.Body>
           <Row className="justify-content-center">
             <PricingAltHeader />
