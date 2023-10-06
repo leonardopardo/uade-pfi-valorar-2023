@@ -32,7 +32,7 @@ const Hero = () => {
             as={Link}
             variant="danger"
             className="mb-4 fs--1 border-2 rounded-pill"
-            to="#!"
+            to="/demo"
           >
             <span className="me-2" role="img" aria-label="Gift">
               🎁

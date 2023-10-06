@@ -21,6 +21,7 @@ import MessagesListPage from "MyApp/pages/mensajes/MessagesListPage";
 import NotificationListPage from "MyApp/pages/notification/NotificationListPage";
 import RoleListPage from "MyApp/pages/role/RoleListPage";
 import ContactoPage from "MyApp/pages/site/ContactoPage";
+import DemoPage from "MyApp/pages/site/Demo/DemoPage";
 import HomePage from "MyApp/pages/site/HomePage";
 import NosotrosPage from "MyApp/pages/site/NosotrosPage";
 import PrivacidadPage from "MyApp/pages/site/PrivacidadPage";
@@ -42,6 +43,7 @@ const MyRoutes = () => {
           <Route path="contacto" element={<ContactoPage />} />
           <Route path="terminos" element={<TerminosPage />} />
           <Route path="privacidad" element={<PrivacidadPage />} />
+          <Route path="demo" element={<DemoPage />} />
         </Route>
         <Route path="/auth" element={<MyAuthLayout />}>
           <Route path="forgot" element={<ForgotPage />} />
