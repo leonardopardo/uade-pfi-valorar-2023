@@ -1,14 +1,17 @@
+import Error500 from 'MyApp/components/errors/Error500';
 import React from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 
 const Error500Page = () => {
   return (
     <>
-      <Row>
-        <Col>
-          <h1>Error 500</h1>
-        </Col>
-      </Row>
+      <Container>
+        <Row>
+          <Col>
+            <Error500 />
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };

@@ -25,7 +25,7 @@ const NosotrosPage = () => {
               y maximicen el valor de sus activos inmobiliarios. Trabajamos
               incansablemente para ofrecer servicios personalizados, datos
               precisos y asesoramiento experto, fortaleciendo así el éxito y la
-              rentabilidad de nuestros clientes en el mercado de bienes raíces.
+              rentabilidad de nuestros clientes en el mercado inmobiliario.
             </p>
           </Col>
         </Row>

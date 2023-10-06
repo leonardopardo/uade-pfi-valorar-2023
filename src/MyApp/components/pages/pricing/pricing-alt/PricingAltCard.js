@@ -15,7 +15,7 @@ const PricingAltCard = ({
           <div>
             <h3 className="fw-light fs-5 mb-0 text-primary">{title}</h3>
             <h2 className="fw-light mt-0 text-primary">
-              <sup className="fs-1">$</sup>
+              <sup className="fs-1">u$s</sup>
               <span className="fs-3">{price}</span>
               <span className="fs--2 mt-1">/ {period}</span>
             </h2>

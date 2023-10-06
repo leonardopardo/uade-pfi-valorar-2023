@@ -102,7 +102,7 @@ export const pricingAltData = [
       { id: 0, title: 'Consultas mensuales Ilimitadas', isActive: true },
       { id: 1, title: 'Análisis de sentimiento', isActive: true },
       { id: 2, title: 'Soporte para Integraciones', isActive: true },
-      { id: 3, title: 'Mesa de Ayuda', isActive: true },
+      { id: 3, title: 'Mesa de Ayuda 24x7', isActive: true },
     ]
   }
 ];

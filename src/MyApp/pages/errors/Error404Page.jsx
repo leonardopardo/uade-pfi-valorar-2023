@@ -1,14 +1,17 @@
 import React from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
+import Error404 from 'MyApp/components/errors/Error404';
 
 const Error404Page = () => {
   return (
     <>
-      <Row>
-        <Col>
-          <h1>Error 404</h1>
-        </Col>
-      </Row>
+      <Container>
+        <Row>
+          <Col>
+            <Error404 />
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };
