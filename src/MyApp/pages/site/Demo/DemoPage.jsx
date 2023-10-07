@@ -10,7 +10,7 @@ import {
 } from "react-bootstrap";
 import imageHeader from "../../../../assets/img/generic/bg-7.jpg";
 import DemoValidationForm from "./validations/DemoValidationForm";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import MyButtonSpinner from "MyApp/my-components/MyButtonSpinner";
 import {
@@ -26,6 +26,8 @@ import {
 import Select from "react-select";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import BarriosService from "MyApp/data/BarriosService";
+import PriceService from "MyApp/data/PriceService";
+import ResponsePrice from "./components/ResponsePrice";
 
 const DemoPage = () => {
   const [loading, setLoading] = React.useState(false);
@@ -39,6 +41,10 @@ const DemoPage = () => {
   const [neighborhoodValue, setNeighborhoodValue] = useState(null);
 
   const [neighborhood, setNeighborhood] = useState([]);
+
+  const [inputValues, setInputValues] = useState(null);
+
+  const [price, setPrice] = useState(null);
 
   const {
     register,
@@ -64,13 +70,16 @@ const DemoPage = () => {
   const DemoFormSubmit = async (data) => {
     setLoading(true);
     try {
-      data.features = featureValue;
-      data.amenities = amenitiesValue;
+      data.features = featureValue.map((item) => item.value);
+      data.amenities = amenitiesValue.map((item) => item.value);
       data.location = locationValue;
       data.neighborhood = neighborhoodValue.label;
-      console.log(data);
+
+      const calculatePrice = await PriceService.getPrice(data);
+
+      setInputValues(data);
+      setPrice(calculatePrice);
     } catch (err) {
-      console.log(err);
     } finally {
       reset();
       setLoading(false);
@@ -183,7 +192,7 @@ const DemoPage = () => {
                           type="number"
                           placeholder="Ingresa la cantidad de ambientes"
                           size="md"
-                          className={isValid(errors.antiquity)}
+                          className={isValid(errors.ambients)}
                         />
                         <p className="text-danger small">
                           {errors.ambients && errors.ambients.message}
@@ -303,25 +312,16 @@ const DemoPage = () => {
             </Card>
           </Col>
         </Row>
+        <Row>
+          <Col className="my-5">
+            {price && inputValues && (
+              <ResponsePrice price={100} data={inputValues} />
+            )}
+          </Col>
+        </Row>
       </Container>
     </>
   );
 };
 
 export default DemoPage;
-
-// {
-//     "caracteristicas": [
-//         "balcony"
-//     ],
-//     "amenities": [],
-//     "lat": -30,
-//     "lon": -30,
-//     "antiguedad": 10,
-//     "ambientes": 1,
-//     "cuartos": 0,
-//     "banos": 1,
-//     "superficie_total": 45,
-//     "barrio": "Palermo",
-//     "localidad": "Buenos Aires"
-// }
