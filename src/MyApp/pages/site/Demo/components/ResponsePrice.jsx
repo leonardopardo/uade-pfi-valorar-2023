@@ -13,7 +13,13 @@ const ResponsePrice = ({ price, data }) => {
             <Row>
               <Col>
                 <Card.Text>
+                  <strong>Antigüedad:</strong> {data.antiquity}
+                </Card.Text>{" "}
+                <Card.Text>
                   <strong>Ambientes:</strong> {data.ambients}
+                </Card.Text>{" "}
+                <Card.Text>
+                  <strong>Cuartos</strong> {data.rooms}
                 </Card.Text>{" "}
                 <Card.Text>
                   <strong>Baños:</strong> {data.bathrooms}
@@ -37,7 +43,7 @@ const ResponsePrice = ({ price, data }) => {
               <Col>
                 <h2>Precio Estimado</h2>
                 <hr />
-                <h3>USD {price}.-</h3>
+                <h3>USD {Math.floor(price)}.-</h3>
               </Col>
             </Row>
           </Card.Text>
