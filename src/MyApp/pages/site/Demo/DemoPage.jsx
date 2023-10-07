@@ -315,7 +315,7 @@ const DemoPage = () => {
         <Row>
           <Col className="my-5">
             {price && inputValues && (
-              <ResponsePrice price={100} data={inputValues} />
+              <ResponsePrice price={price} data={inputValues} />
             )}
           </Col>
         </Row>
