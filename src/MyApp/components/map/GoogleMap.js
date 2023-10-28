@@ -7,7 +7,7 @@ const GoogleMap = ({ lat, lng, zoom }) => {
       lat: lat,
       lng: lng,
     },
-    zoom: zoom || 11,
+    zoom: zoom || 15,
   };
 
   return (

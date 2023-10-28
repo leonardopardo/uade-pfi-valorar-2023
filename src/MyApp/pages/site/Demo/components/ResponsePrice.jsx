@@ -30,7 +30,7 @@ const ResponsePrice = ({ price, sentiment, data, geo }) => {
   const getSentimentNews = (news) => {
     return (
       <>
-        {news.map((n) => {
+        {news.slice(0, 4).map((n) => {
           return (
             <>
               <li>
