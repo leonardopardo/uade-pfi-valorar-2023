@@ -5,16 +5,16 @@ class PriceService {
 
   async getPrice(data) {
     const body = {
-        caracteristicas: data.features,
-        amenities: data.amenities,
-        antiguedad: data.antiquity,
-        ambientes: data.ambients,
-        cuartos: data.rooms,
-        banos: data.bathrooms,
-        superficie_total: data.surface,
-        barrio: data.neighborhood,
-    }
-    
+      caracteristicas: data.features,
+      amenities: data.amenities,
+      antiguedad: data.antiquity,
+      ambientes: data.ambients,
+      cuartos: data.rooms,
+      banos: data.bathrooms,
+      superficie_total: data.surface,
+      barrio: data.neighborhood,
+    };
+
     const response = await fetch(this.service, {
       method: "POST",
       headers: {
@@ -22,12 +22,11 @@ class PriceService {
       },
       body: JSON.stringify(body),
     });
-    
+
     const result = await response.json();
-    
+
     return result;
   }
 }
 
 export default new PriceService();
-

@@ -1,17 +1,17 @@
-import React, { useContext } from 'react';
-import Typed from 'react-typed';
-import { Link } from 'react-router-dom';
-import { Row, Col, Button } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import bg1 from 'assets/img/generic/bg-6.jpg';
-import dashboard from 'assets/img/generic/dashboard-alt.png';
-import dashboardDark from 'assets/img/generic/dashboard-alt-dark.png';
-import Section from 'components/common/Section';
-import AppContext from 'context/Context';
+import React, { useContext } from "react";
+import Typed from "react-typed";
+import { Link } from "react-router-dom";
+import { Row, Col, Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import bg1 from "assets/img/generic/bg-6.jpg";
+import dashboard from "assets/img/generic/dashboard-alt.png";
+import dashboardDark from "assets/img/generic/dashboard-alt-dark.png";
+import Section from "components/common/Section";
+import AppContext from "context/Context";
 
 const Hero = () => {
   const {
-    config: { isDark }
+    config: { isDark },
   } = useContext(AppContext);
 
   return (
@@ -43,17 +43,18 @@ const Hero = () => {
             Inteligencia Artificial
             <br /> para
             <Typed
-              strings={['Calcular', 'Probar', 'Cotizar', 'Analizar']}
+              strings={["Calcular", "Probar", "Cotizar", "Analizar"]}
               typeSpeed={40}
               backSpeed={50}
               className="fw-bold ps-2"
               loop
             />
             <br />
-            tus operaciones 
+            tus operaciones
           </h1>
           <p className="lead text-white opacity-75">
-            Calculá tus operaciones inmobiliarias de forma rápida y precisa, utilizando la tecnología de la inteligencia artificial.
+            Calculá tus operaciones inmobiliarias de forma rápida y precisa,
+            utilizando la tecnología de la inteligencia artificial.
           </p>
           <Button
             as={Link}

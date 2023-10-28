@@ -3,17 +3,17 @@ import React, {
   useContext,
   useEffect,
   useRef,
-  useState
-} from 'react';
-import PropTypes from 'prop-types';
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
-import classNames from 'classnames';
-import googleMapStyles from '../../helpers/googleMapStyles';
-import AppContext from 'context/Context';
+  useState,
+} from "react";
+import PropTypes from "prop-types";
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+import classNames from "classnames";
+import googleMapStyles from "../../helpers/googleMapStyles";
+import AppContext from "context/Context";
 
 const GoogleMap = ({ mapStyle, darkStyle, className, children, ...rest }) => {
   const {
-    config: { isDark }
+    config: { isDark },
   } = useContext(AppContext);
 
   const [activeMarker, setActiveMarker] = useState({});
@@ -35,18 +35,18 @@ const GoogleMap = ({ mapStyle, darkStyle, className, children, ...rest }) => {
     if (mapRef.current && darkStyle) {
       if (isDark) {
         mapRef.current.map.setOptions({
-          styles: googleMapStyles[darkStyle]
+          styles: googleMapStyles[darkStyle],
         });
       } else {
         mapRef.current.map.setOptions({
-          styles: googleMapStyles[mapStyle]
+          styles: googleMapStyles[mapStyle],
         });
       }
     }
   }, [isDark]);
 
   return (
-    <div className={classNames('position-relative', className)}>
+    <div className={classNames("position-relative", className)}>
       <Map styles={googleMapStyles[mapStyle]} ref={mapRef} {...rest}>
         <Marker onClick={onMarkerClick} />
 
@@ -66,35 +66,35 @@ const GoogleMap = ({ mapStyle, darkStyle, className, children, ...rest }) => {
 
 GoogleMap.propTypes = {
   mapStyle: PropTypes.oneOf([
-    'Default',
-    'Gray',
-    'Midnight',
-    'Hopper',
-    'Beard',
-    'AssassianCreed',
-    'SubtleGray',
-    'Tripitty',
-    'Cobalt'
+    "Default",
+    "Gray",
+    "Midnight",
+    "Hopper",
+    "Beard",
+    "AssassianCreed",
+    "SubtleGray",
+    "Tripitty",
+    "Cobalt",
   ]),
   darkStyle: PropTypes.oneOf([
-    'Default',
-    'Gray',
-    'Midnight',
-    'Hopper',
-    'Beard',
-    'AssassianCreed',
-    'SubtleGray',
-    'Tripitty',
-    'Cobalt'
+    "Default",
+    "Gray",
+    "Midnight",
+    "Hopper",
+    "Beard",
+    "AssassianCreed",
+    "SubtleGray",
+    "Tripitty",
+    "Cobalt",
   ]),
   className: PropTypes.string,
   children: PropTypes.node,
-  ...Map.propTypes
+  ...Map.propTypes,
 };
 
-GoogleMap.defaultProps = { zoom: 17, mapStyle: 'Default' };
+GoogleMap.defaultProps = { zoom: 17, mapStyle: "Default" };
 
 // TODO: Do you provide the apiKey in production, instruct user to use his own apiKey
 export default GoogleApiWrapper({
-  apiKey: process.env.REACT_APP_GOOGLE_API_KEY
+  apiKey: "AIzaSyC1SKfM0hkWaDGNv0O4Q2lXXrZ1HO2Nl2c",
 })(GoogleMap);

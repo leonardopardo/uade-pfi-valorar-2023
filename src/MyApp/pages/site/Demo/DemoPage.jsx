@@ -10,7 +10,7 @@ import {
 } from "react-bootstrap";
 import imageHeader from "../../../../assets/img/generic/bg-7.jpg";
 import DemoValidationForm from "./validations/DemoValidationForm";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import MyButtonSpinner from "MyApp/my-components/MyButtonSpinner";
 import {
@@ -22,12 +22,15 @@ import {
   FiLayers,
   FiHexagon,
   FiDollarSign,
+  FiRefreshCw,
 } from "react-icons/fi";
 import Select from "react-select";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import BarriosService from "MyApp/data/BarriosService";
 import PriceService from "MyApp/data/PriceService";
 import ResponsePrice from "./components/ResponsePrice";
+import { geocodeByPlaceId } from "react-google-places-autocomplete";
+import CountUp from "react-countup";
 
 const DemoPage = () => {
   const [loading, setLoading] = React.useState(false);
@@ -45,6 +48,8 @@ const DemoPage = () => {
   const [inputValues, setInputValues] = useState(null);
 
   const [price, setPrice] = useState(null);
+
+  const [geo, setGeo] = useState(null);
 
   const {
     register,
@@ -66,6 +71,15 @@ const DemoPage = () => {
     };
     getNeighborhood();
   }, []);
+
+  const geoCode = async (location) => {
+    if (!location) return;
+    const result = await geocodeByPlaceId("ChIJXQwVsTvJvJUR_wI0CzFU6Uk");
+    setGeo({
+      lat: result[0].geometry.location.lat(),
+      lng: result[0].geometry.location.lng(),
+    });
+  };
 
   const DemoFormSubmit = async (data) => {
     setLoading(true);
@@ -115,12 +129,46 @@ const DemoPage = () => {
     { value: "estacionamiento_visitas", label: "Estacionamiento de visitas" },
   ];
 
+  useEffect(() => {
+    geoCode(locationValue);
+  }, [locationValue]);
+
   return (
     <>
       <Image src={imageHeader} fluid />
       <Container>
+        <Row className="mt-4">
+          <Col>
+            <h4 className="mb-3">
+              <FiRefreshCw /> Realice una demostración de nuestro <br />{" "}
+              estimador de Alquilers
+            </h4>
+            <Card>
+              <Card.Body>
+                <CountUp
+                  className="fs-3"
+                  start={0}
+                  end={70000}
+                  duration={2.75}
+                  suffix=" propiedades escaneadas"
+                  prefix="Más de "
+                  separator=","
+                  decimals={0}
+                  decimal="."
+                />
+                <Card.Text>
+                  Nuestro sistema de cálculo de alquileres se basa en un
+                  algoritmo de <strong>Machine Learning</strong> que utiliza
+                  información de alquileres publicados en los principales
+                  portales de propiedades en los últimos meses en la Ciudad de
+                  Buenos Aires.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
         <Row>
-          <Col className="my-5">
+          <Col className="mb-5 mt-3">
             <Card>
               <Card.Body>
                 <Form onSubmit={handleSubmit(DemoFormSubmit)}>
@@ -132,9 +180,11 @@ const DemoPage = () => {
                     <Select
                       {...register("features")}
                       closeMenuOnSelect={false}
+                      placeholder="Selecciona las características"
                       options={features}
                       value={featureValue}
                       onChange={(value) => setFeatureValue(value)}
+                      className={isValid(errors.features)}
                       isMulti
                       isClearable
                     />
@@ -150,15 +200,17 @@ const DemoPage = () => {
                     </Form.Label>
                     <Select
                       {...register("amenities")}
+                      placeholder="Selecciona los amenities"
                       closeMenuOnSelect={false}
                       options={amenities}
                       value={amenitiesValue}
                       onChange={(value) => setAmenitiesValue(value)}
+                      className={isValid(errors.amenities)}
                       isMulti
                       isClearable
                     />
                     <p className="text-danger small my-2">
-                      {errors.features && errors.features.message}
+                      {errors.amenities && errors.amenities.message}
                     </p>
                   </Form.Group>
 
@@ -268,6 +320,7 @@ const DemoPage = () => {
                           selectProps={{
                             locationValue,
                             onChange: setLocationValue,
+                            onMenuClose: geoCode,
                           }}
                         />
                         <p className="text-danger small">
@@ -277,7 +330,6 @@ const DemoPage = () => {
                     </Col>
                     <Col>
                       {/* Barrios */}
-
                       {neighborhood && (
                         <Form.Group className="mb-3">
                           <Form.Label>
@@ -285,10 +337,12 @@ const DemoPage = () => {
                           </Form.Label>
                           <Select
                             {...register("neighborhood")}
+                            placeholder="Selecciona el Barrio"
                             closeMenuOnSelect={true}
                             options={neighborhood}
                             value={neighborhoodValue}
                             onChange={(value) => setNeighborhoodValue(value)}
+                            className={isValid(errors.neighborhood)}
                             isClearable
                           />
                           <p className="text-danger small my-2">
@@ -313,9 +367,9 @@ const DemoPage = () => {
           </Col>
         </Row>
         <Row>
-          <Col className="my-5">
-            {price && inputValues && (
-              <ResponsePrice price={price} data={inputValues} />
+          <Col className="mb-5">
+            {price && inputValues && geo && (
+              <ResponsePrice price={price} data={inputValues} geo={geo} />
             )}
           </Col>
         </Row>
