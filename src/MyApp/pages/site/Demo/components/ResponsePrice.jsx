@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Row, Col, Image } from "react-bootstrap";
 import {
   FiAlertTriangle,
@@ -11,7 +11,40 @@ import {
 import logo from "assets/img/illustrations/logo.svg";
 import GoogleMap from "MyApp/components/map/GoogleMap";
 
-const ResponsePrice = ({ price, data, geo }) => {
+const ResponsePrice = ({ price, sentiment, data, geo }) => {
+  const [sntm, setSntm] = useState(sentiment?.result);
+
+  const getSentimentResult = () => {
+    switch (sntm) {
+      case "Positive":
+        return "alert alert-success d-inline-block";
+      case "Negative":
+        return "alert alert-danger d-inline-block";
+      case "Neutral":
+        return "alert alert-info d-inline-block";
+      default:
+        return "alert alert-info d-inline-block";
+    }
+  };
+
+  const getSentimentNews = (news) => {
+    return (
+      <>
+        {news.map((n) => {
+          return (
+            <>
+              <li>
+                <a target="_blank" href={n}>
+                  {n}
+                </a>
+              </li>
+            </>
+          );
+        })}
+      </>
+    );
+  };
+
   return (
     <>
       <Card>
@@ -84,45 +117,12 @@ const ResponsePrice = ({ price, data, geo }) => {
               <h5 className="mb-2">
                 <FiPieChart /> Análisis de Sentimiento
               </h5>
-              <h5 className="alert alert-info d-inline-block">NEUTRAL</h5>
+              <h5 className={getSentimentResult(sntm)}>{sntm}</h5>
               <div>
                 <h6>
                   <FiAnchor /> Noticias Relacionadas
                 </h6>
-                <ul>
-                  <li>
-                    <a
-                      target="_blank"
-                      href="https://www.lanacion.com.ar/politica/ley-de-alquileres-avanzaron-dos-proyecto-de-modificacion-y-la-definicion-sera-de-la-camara-de-nid04102023/"
-                    >
-                      https://www.pagina12.com.ar/595489-alquileres-plenario-avanzo-con-el-debate-de-los-cambios-a-la
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      target="_blank"
-                      href="https://www.lanacion.com.ar/propiedades/casas-y-departamentos/ley-de-alquileres-avanzaron-dos-proyecto-de-modificacion-y-la-definicion-sera-de-la-camara-de-nid04102023/"
-                    >
-                      https://www.lanacion.com.ar/propiedades/casas-y-departamentos/ley-de-alquileres-avanzaron-dos-proyecto-de-modificacion-y-la-definicion-sera-de-la-camara-de-nid04102023
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      target="_blank"
-                      href="https://www.clarin.com/politica/ley-alquileres-kirchnerismo-pidio-sesion-reforma-proyectos-campana-sergio-massa_0_QMJKZ3c2X0.html"
-                    >
-                      https://www.clarin.com/politica/ley-alquileres-kirchnerismo-pidio-sesion-reforma-proyectos-campana-sergio-massa_0_QMJKZ3c2X0.html
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      target="_blank"
-                      href="https://www.infobae.com/politica/2023/10/04/la-ley-de-alquileres-tendria-su-sancion-definitiva-la-semana-que-viene-en-diputados-los-cinco-votos-en-disputa/"
-                    >
-                      https://www.infobae.com/politica/2023/10/04/la-ley-de-alquileres-tendria-su-sancion-definitiva-la-semana-que-viene-en-diputados-los-cinco-votos-en-disputa
-                    </a>
-                  </li>
-                </ul>
+                <ul>{getSentimentNews(sentiment?.examples)}</ul>
                 <p>
                   * El análisis de sentimiento es el resutltado promedio
                   ponderado del análisis semanal de noticias en los principales

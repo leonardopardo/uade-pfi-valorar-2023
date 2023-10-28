@@ -49,6 +49,8 @@ const DemoPage = () => {
 
   const [price, setPrice] = useState(null);
 
+  const [sentiment, setSentiment] = useState(null);
+
   const [geo, setGeo] = useState(null);
 
   const {
@@ -89,10 +91,11 @@ const DemoPage = () => {
       data.location = locationValue;
       data.neighborhood = neighborhoodValue.label;
 
-      const calculatePrice = await PriceService.getPrice(data);
+      const { price, sentiment } = await PriceService.getPrice(data);
 
       setInputValues(data);
-      setPrice(calculatePrice);
+      setPrice(price);
+      setSentiment(sentiment);
     } catch (err) {
     } finally {
       reset();
@@ -369,7 +372,12 @@ const DemoPage = () => {
         <Row>
           <Col className="mb-5">
             {price && inputValues && geo && (
-              <ResponsePrice price={price} data={inputValues} geo={geo} />
+              <ResponsePrice
+                price={price}
+                sentiment={sentiment}
+                data={inputValues}
+                geo={geo}
+              />
             )}
           </Col>
         </Row>
