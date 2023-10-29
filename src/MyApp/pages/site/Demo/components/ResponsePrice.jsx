@@ -119,7 +119,11 @@ const ResponsePrice = ({ price, sentiment, data, geo }) => {
               <h5 className="mb-2">
                 <FiPieChart /> Análisis de Sentimiento
               </h5>
-              <h5 className={getSentimentResult(sntm)}>{sntm.toString()}</h5>
+              {sntm ? (
+                <h5 className={getSentimentResult(sntm)}>{sntm}</h5>
+              ): (
+                <h5 className="alert alert-primary d-inline-block">Sin Información</h5>
+              )}
               <div>
                 <h6>
                   <FiAnchor /> Noticias Relacionadas
