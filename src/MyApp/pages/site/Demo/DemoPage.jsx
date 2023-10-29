@@ -62,21 +62,23 @@ const DemoPage = () => {
     resolver: yupResolver(DemoValidationForm),
   });
 
-  useEffect(() => {
-    const getNeighborhood = async () => {
-      try {
-        const barrios = BarriosService.getBarrios();
-        setNeighborhood(barrios);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getNeighborhood();
-  }, []);
-
   const geoCode = async (location) => {
     if (!location) return;
+
     const result = await geocodeByPlaceId(location.value?.place_id);
+
+    const addressComponents = result[0].address_components;
+
+    const components = addressComponents.map((address) => {
+      return address.long_name;
+    });
+
+    const barrio = neighborhood.find((item) => {
+      return components.includes(item.label);
+    });
+
+    if (barrio) setNeighborhoodValue(barrio);
+
     setGeo({
       lat: result[0].geometry.location.lat(),
       lng: result[0].geometry.location.lng(),
@@ -137,6 +139,18 @@ const DemoPage = () => {
     geoCode(locationValue);
   }, [locationValue]);
 
+  useEffect(() => {
+    const getNeighborhood = async () => {
+      try {
+        const barrios = BarriosService.getBarrios();
+        setNeighborhood(barrios);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getNeighborhood();
+  }, []);
+
   return (
     <>
       <Image src={imageHeader} fluid />
@@ -144,8 +158,8 @@ const DemoPage = () => {
         <Row className="mt-4">
           <Col>
             <h4 className="mb-3">
-              Realice una demostración de nuestro <br />{" "}
-              estimador de Alquileres.
+              Realice una demostración de nuestro <br /> estimador de
+              Alquileres.
             </h4>
             <Card>
               <Card.Body>

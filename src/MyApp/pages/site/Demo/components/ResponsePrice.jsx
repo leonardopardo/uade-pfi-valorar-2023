@@ -45,7 +45,7 @@ const ResponsePrice = ({ price, sentiment, data, geo }) => {
 
   useEffect(() => {
     setSntm(sentiment?.result);
-  }, [sntm]);
+  }, [sentiment]);
 
   return (
     <>
