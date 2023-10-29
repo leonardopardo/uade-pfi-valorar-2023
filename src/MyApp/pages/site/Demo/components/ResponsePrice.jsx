@@ -12,7 +12,7 @@ import logo from "assets/img/illustrations/logo.svg";
 import GoogleMap from "MyApp/components/map/GoogleMap";
 
 const ResponsePrice = ({ price, sentiment, data, geo }) => {
-  const [sntm, setSntm] = useState(sentiment?.result);
+  const [sntm] = useState(sentiment?.result);
 
   const getSentimentResult = () => {
     switch (sntm) {
@@ -28,17 +28,16 @@ const ResponsePrice = ({ price, sentiment, data, geo }) => {
   };
 
   const getSentimentNews = (news) => {
+    const newsSlice = news?.slice(0, 4);
     return (
       <>
-        {news.slice(0, 4).map((n) => {
+        {newsSlice.map((n) => {
           return (
-            <>
-              <li>
-                <a target="_blank" href={n}>
-                  {n}
-                </a>
-              </li>
-            </>
+            <li>
+              <a target="_blank" href={n}>
+                {n}
+              </a>
+            </li>
           );
         })}
       </>
