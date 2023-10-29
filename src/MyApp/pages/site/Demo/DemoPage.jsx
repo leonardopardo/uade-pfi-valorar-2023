@@ -106,6 +106,18 @@ const DemoPage = () => {
     }
   };
 
+  const DemoFormReset = () => {
+    setPrice(null);
+    setSentiment(null);
+    setInputValues(null);
+    setFeatureValue(null);
+    setAmenitiesValue(null);
+    setLocationValue(null);
+    setNeighborhoodValue(null);
+    setGeo(null);
+    reset();
+  };
+
   const isValid = (value) => {
     return value ? "is-invalid" : "";
   };
@@ -150,6 +162,10 @@ const DemoPage = () => {
     };
     getNeighborhood();
   }, []);
+
+  useEffect(() => {
+    reset();
+  }, [reset]);
 
   return (
     <>
@@ -325,7 +341,7 @@ const DemoPage = () => {
                     </Col>
                   </Row>
 
-                  <Row>
+                  <Row className="mb-4">
                     <Col>
                       {/* Ubicación */}
                       <Form.Group className="mb-3">
@@ -373,9 +389,19 @@ const DemoPage = () => {
 
                   {/* Submit */}
                   {!loading ? (
-                    <Button variant="primary" type="submit" size="md">
-                      <FiDollarSign /> Calcular Precio
-                    </Button>
+                    <>
+                      <Button variant="primary" type="submit" size="md">
+                        <FiDollarSign /> Calcular Precio
+                      </Button>
+                      <Button
+                        variant="secondary"
+                        size="md"
+                        className="ms-2"
+                        onClick={DemoFormReset}
+                      >
+                        <FiRefreshCw /> Limpiar Formulario
+                      </Button>
+                    </>
                   ) : (
                     <MyButtonSpinner />
                   )}
