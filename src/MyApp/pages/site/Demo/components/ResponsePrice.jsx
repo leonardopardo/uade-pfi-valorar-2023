@@ -28,10 +28,9 @@ const ResponsePrice = ({ price, sentiment, data, geo }) => {
   };
 
   const getSentimentNews = (news) => {
-    const newsSlice = news?.slice(0, 4);
     return (
       <>
-        {newsSlice.map((n) => {
+        {news?.map((n) => {
           return (
             <li>
               <a target="_blank" href={n}>
