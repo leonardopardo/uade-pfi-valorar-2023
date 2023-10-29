@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import { Card, Row, Col, Image } from "react-bootstrap";
 import {
   FiAlertTriangle,
@@ -12,7 +12,7 @@ import logo from "assets/img/illustrations/logo.svg";
 import GoogleMap from "MyApp/components/map/GoogleMap";
 
 const ResponsePrice = ({ price, sentiment, data, geo }) => {
-  const [sntm] = useState(sentiment?.result);
+  const [sntm, setSntm] = useState(sentiment?.result);
 
   const getSentimentResult = () => {
     switch (sntm) {
@@ -42,6 +42,10 @@ const ResponsePrice = ({ price, sentiment, data, geo }) => {
       </>
     );
   };
+
+  useEffect(() => {
+    setSntm(sentiment?.result);
+  }, [sntm]);
 
   return (
     <>

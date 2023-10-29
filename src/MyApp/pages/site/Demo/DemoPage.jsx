@@ -76,7 +76,7 @@ const DemoPage = () => {
 
   const geoCode = async (location) => {
     if (!location) return;
-    const result = await geocodeByPlaceId("ChIJXQwVsTvJvJUR_wI0CzFU6Uk");
+    const result = await geocodeByPlaceId(location.value?.place_id);
     setGeo({
       lat: result[0].geometry.location.lat(),
       lng: result[0].geometry.location.lng(),
@@ -97,6 +97,7 @@ const DemoPage = () => {
       setPrice(price);
       setSentiment(sentiment);
     } catch (err) {
+      console.log(err);
     } finally {
       reset();
       setLoading(false);
@@ -143,17 +144,17 @@ const DemoPage = () => {
         <Row className="mt-4">
           <Col>
             <h4 className="mb-3">
-              <FiRefreshCw /> Realice una demostración de nuestro <br />{" "}
-              estimador de Alquilers
+              Realice una demostración de nuestro <br />{" "}
+              estimador de Alquileres.
             </h4>
             <Card>
               <Card.Body>
                 <CountUp
-                  className="fs-3"
+                  className="fs-3 text-primary"
                   start={0}
-                  end={70000}
+                  end={72000}
                   duration={2.75}
-                  suffix=" propiedades escaneadas"
+                  suffix=" propiedades procesadas."
                   prefix="Más de "
                   separator=","
                   decimals={0}
@@ -379,6 +380,11 @@ const DemoPage = () => {
                 geo={geo}
               />
             )}
+                          <ResponsePrice
+                price={100}
+                sentiment={{result: "Positive", exaples: ["https://www.google.com", "https://www.google.com"]}}
+                geo={geo}
+              />
           </Col>
         </Row>
       </Container>
