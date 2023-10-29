@@ -12,7 +12,7 @@ import logo from "assets/img/illustrations/logo.svg";
 import GoogleMap from "MyApp/components/map/GoogleMap";
 
 const ResponsePrice = ({ price, sentiment, data, geo }) => {
-  const [sntm, setSntm] = useState(sentiment?.result);
+  const [sntm, setSntm] = useState("");
 
   const getSentimentResult = () => {
     switch (sntm) {
@@ -120,7 +120,7 @@ const ResponsePrice = ({ price, sentiment, data, geo }) => {
                 <FiPieChart /> Análisis de Sentimiento
               </h5>
               {sntm ? (
-                <h5 className={getSentimentResult(sntm)}>{sntm}</h5>
+                <h5 className={getSentimentResult(sntm)}>{sentiment?.result}</h5>
               ): (
                 <h5 className="alert alert-primary d-inline-block">Sin Información</h5>
               )}
