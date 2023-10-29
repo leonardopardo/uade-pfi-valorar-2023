@@ -23,7 +23,7 @@ const ResponsePrice = ({ price, sentiment, data, geo }) => {
       case "Neutral":
         return "alert alert-info d-inline-block";
       default:
-        return "alert alert-info d-inline-block";
+        return "alert alert-primary d-inline-block";
     }
   };
 
@@ -119,7 +119,7 @@ const ResponsePrice = ({ price, sentiment, data, geo }) => {
               <h5 className="mb-2">
                 <FiPieChart /> Análisis de Sentimiento
               </h5>
-              <h5 className={getSentimentResult(sntm)}>{sntm}</h5>
+              <h5 className={getSentimentResult(sntm)}>{sntm.toString()}</h5>
               <div>
                 <h6>
                   <FiAnchor /> Noticias Relacionadas
