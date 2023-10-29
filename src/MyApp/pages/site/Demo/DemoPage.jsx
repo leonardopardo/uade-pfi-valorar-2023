@@ -380,11 +380,6 @@ const DemoPage = () => {
                 geo={geo}
               />
             )}
-                          <ResponsePrice
-                price={100}
-                sentiment={{result: "Positive", exaples: ["https://www.google.com", "https://www.google.com"]}}
-                geo={geo}
-              />
           </Col>
         </Row>
       </Container>
