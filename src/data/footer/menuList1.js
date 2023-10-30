@@ -1,6 +1,6 @@
 export default [
+  { title: 'Home', to: 'home' },
   { title: 'Nosotros', to: 'nosotros' },
-  { title: 'Contacto', to: 'contacto' },
   { title: 'Terminos', to: 'terminos' },
   { title: 'Privacidad', to: 'privacidad' },
 ];

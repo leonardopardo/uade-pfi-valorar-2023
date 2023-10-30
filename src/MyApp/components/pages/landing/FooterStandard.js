@@ -93,14 +93,14 @@ const FooterStandard = () => {
                 <FooterTitle>Empresa</FooterTitle>
                 <FooterList list={menuList1} />
               </Col>
-              <Col xs={6} md={3}>
+              {/* <Col xs={6} md={3}>
                 <FooterTitle>Product</FooterTitle>
                 <FooterList list={menuList2} />
               </Col>
               <Col className="mt-5 mt-md-0">
                 <FooterTitle>From the Blog</FooterTitle>
                 <FooterBlogList list={blogPostList} />
-              </Col>
+              </Col> */}
             </Row>
           </Col>
         </Row>
