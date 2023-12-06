@@ -40,6 +40,7 @@
     "leaflet.tilelayer.colorfilter": "^1.2.5",
     "plyr": "^3.6.8",
     "prism-react-renderer": "^1.2.1",
+    "prismjs": "^1.29.0",
     "react": "^17.0.2",
     "react-beautiful-dnd": "^13.1.0",
     "react-bootstrap": "^2.0.4",
@@ -110,5 +111,9 @@
     "webpack-cli": "^4.6.0",
     "webpack-fix-style-only-entries": "^0.6.1",
     "webpack-rtl-plugin": "^2.0.0"
-  }
+  },
+  "resolutions": {
+    "react": "17.0.2",
+    "@emotion/react": "11.11.1"
+  }  
 }

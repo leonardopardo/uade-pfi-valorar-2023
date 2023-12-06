@@ -1,11 +1,11 @@
 export const dashboardRoutes = {
-  label: "Panel Principal",
+  label: "Lo Básico",
   labelDisable: false,
   children: [
     {
-      name: "Panel Principal",
+      name: "Empezando",
       active: true,
-      icon: "chart-pie",
+      icon: "",
       children: [
         {
           name: "Resumen",

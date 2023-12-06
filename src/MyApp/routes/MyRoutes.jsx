@@ -16,7 +16,7 @@ import Error500Page from "MyApp/pages/errors/Error500Page";
 import FaqPage from "MyApp/pages/help/FaqPage";
 import TutorialsPage from "MyApp/pages/help/TutorialsPage";
 import EstadisticasPage from "MyApp/pages/home/EstadisticasPage";
-import PrincipalPage from "MyApp/pages/home/PrincipalPage";
+import AdminHomePage from "MyApp/pages/home/HomePage";
 import MessagesListPage from "MyApp/pages/mensajes/MessagesListPage";
 import NotificationListPage from "MyApp/pages/notification/NotificationListPage";
 import RoleListPage from "MyApp/pages/role/RoleListPage";
@@ -55,7 +55,7 @@ const MyRoutes = () => {
         </Route>
         <Route path="/admin" element={<MyAppLayout />}>
           <Route path="panel">
-            <Route path="principal" element={<PrincipalPage />} />
+            <Route path="principal" element={<AdminHomePage />} />
             <Route path="estadisticas" element={<EstadisticasPage />} />
           </Route>
           <Route path="mensajes">
