@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Card } from 'react-bootstrap';
-import Flex from 'components/common/Flex';
-import Notification from './Notification';
-import Background from 'components/common/Background';
-import ecomBg from 'assets/img/illustrations/ecommerce-bg.png';
+import React from "react";
+import PropTypes from "prop-types";
+import { Card } from "react-bootstrap";
+import Flex from "components/common/Flex";
+import Notification from "./Notification";
+import Background from "components/common/Background";
+import ecomBg from "assets/img/illustrations/ecommerce-bg.png";
 
 const GreetingCard = ({ notifications }) => {
   return (
@@ -14,15 +14,15 @@ const GreetingCard = ({ notifications }) => {
           image={ecomBg}
           className="d-none d-md-block bg-card z-index-1"
           style={{
-            backgroundSize: '230px',
-            backgroundPosition: 'right bottom',
-            zIndex: '-1'
+            backgroundSize: "230px",
+            backgroundPosition: "right bottom",
+            zIndex: "-1",
           }}
         />
         <div className="position-relative z-index-2">
-          <div>
-            <h3 className="text-primary mb-1">Hola, Jonathan!</h3>
-            <p>Esto es lo que sucede en tu cuenta en el día de hoy.</p>
+          <div className="p-5">
+            <h3 className="text-primary mb-1">Hola, Usuario!</h3>
+            <p>Bienvenido a tu cuenta Valorar.ar</p>
           </div>
           {/* <Flex className="py-3">
             <div className="pe-3">
@@ -52,7 +52,7 @@ const GreetingCard = ({ notifications }) => {
 };
 
 GreetingCard.propTypes = {
-  notifications: PropTypes.arrayOf(PropTypes.object)
+  notifications: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default GreetingCard;

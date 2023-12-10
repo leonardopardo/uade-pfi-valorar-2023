@@ -3,6 +3,11 @@ import MyAppLayout from "MyApp/layouts/MyAppLayout";
 import MyAuthLayout from "MyApp/layouts/MyAuthLauout";
 import MyErrorLayout from "MyApp/layouts/MyErrorLayout";
 import MyWebLayout from "MyApp/layouts/MyWebLayout";
+import CuentaPage from "MyApp/pages/account/CuentaPage";
+import PagosPage from "MyApp/pages/account/PagosPage";
+import AuthenticationPage from "MyApp/pages/api/AuthenticationPage";
+import EstimacionPage from "MyApp/pages/api/EstimacionPage";
+import SentimientoPage from "MyApp/pages/api/SentimientoPage";
 import ForgotPage from "MyApp/pages/auth/ForgotPage";
 import LoginPage from "MyApp/pages/auth/LoginPage";
 import LogoutPage from "MyApp/pages/auth/LogoutPage";
@@ -55,8 +60,17 @@ const MyRoutes = () => {
         </Route>
         <Route path="/admin" element={<MyAppLayout />}>
           <Route path="panel">
-            <Route path="principal" element={<AdminHomePage />} />
+            <Route path="comenzando" element={<AdminHomePage />} />
             <Route path="estadisticas" element={<EstadisticasPage />} />
+          </Route>
+          <Route path="aplicacion">
+            <Route path="autenticacion" element={<AuthenticationPage />} />
+            <Route path="estimacion" element={<EstimacionPage />} />
+            <Route path="sentimiento" element={<SentimientoPage />} />
+          </Route>
+          <Route path="cuenta">
+            <Route path="mi-cuenta" element={<CuentaPage />} />
+            <Route path="pagos" element={<PagosPage />} />
           </Route>
           <Route path="mensajes">
             <Route path="listar" element={<MessagesListPage />} />

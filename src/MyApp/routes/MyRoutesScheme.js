@@ -4,26 +4,43 @@ export const dashboardRoutes = {
   children: [
     {
       name: "Comenzando",
-      to: "/admin/panel/principal",
+      to: "/admin/panel/comenzando",
+      icon: "rocket",
       exact: true,
       active: true,
     },
     {
       name: "Estadísticas",
       to: "/admin/panel/estadisticas",
+      icon: "chart-line",
       exact: true,
       active: true,
     },
   ],
 };
 
-export const settingsRoutes = {
-  label: "Autenticación",
+export const apiRoutes = {
+  label: "La API",
   labelDisable: false,
   children: [
     {
       name: "Aplicación",
-      to: "/admin/configuracion/aplicacion",
+      to: "/admin/aplicacion/autenticacion",
+      icon: "puzzle-piece",
+      exact: true,
+      active: true,
+    },
+    {
+      name: "Estimacion",
+      to: "/admin/aplicacion/estimacion",
+      icon: "poll",
+      exact: true,
+      active: true,
+    },
+    {
+      name: "Sentimiento",
+      to: "/admin/aplicacion/sentimiento",
+      icon: "fire",
       exact: true,
       active: true,
     },
@@ -35,13 +52,21 @@ export const accountRoutes = {
   labelDisable: false,
   children: [
     {
-      name: "Cuenta",
-      to: "/admin/cuenta",
+      name: "Mi Cuenta",
+      to: "/admin/cuenta/mi-cuenta",
+      icon: "cog",
+      exact: true,
+      active: true,
+    },
+    {
+      name: "Mis Pagos",
+      to: "/admin/cuenta/pagos",
+      icon: "file-alt",
       exact: true,
       active: true,
     },
   ],
-};  
+};
 
 export const helpRoutes = {
   label: "Ayuda",
@@ -52,12 +77,6 @@ export const helpRoutes = {
       active: true,
       icon: "info-circle",
       children: [
-        {
-          name: "Tutoriales",
-          to: "/admin/ayuda/tutoriales",
-          exact: true,
-          active: true,
-        },
         {
           name: "Faqs",
           to: "/admin/ayuda/faqs",
@@ -115,11 +134,4 @@ export const callbacksRoutes = {
   ],
 };
 
-export default [
-  dashboardRoutes,
-  settingsRoutes,
-  accountRoutes,
-  helpRoutes,
-  webmasterRoutes,
-  callbacksRoutes,
-];
+export default [dashboardRoutes, apiRoutes, accountRoutes, helpRoutes];
