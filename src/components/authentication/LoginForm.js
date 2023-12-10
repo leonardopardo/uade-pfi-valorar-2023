@@ -23,9 +23,10 @@ const LoginForm = ({ hasLabel, layout }) => {
         formData.email,
         formData.password
       );
-      console.log(token);
+
       if (token) {
         localStorage.setItem("token", token);
+        localStorage.setItem("user", formData.email);
         window.location.href = "/admin";
       }
     } catch (err) {

@@ -7,6 +7,7 @@ import Background from "components/common/Background";
 import ecomBg from "assets/img/illustrations/ecommerce-bg.png";
 
 const GreetingCard = ({ notifications }) => {
+  const usuario = localStorage.getItem("user");
   return (
     <Card className="bg-transparent-50 overflow-hidden">
       <Card.Header className="position-relative">
@@ -21,7 +22,7 @@ const GreetingCard = ({ notifications }) => {
         />
         <div className="position-relative z-index-2">
           <div className="p-4">
-            <h3 className="text-primary mb-1">Hola, Usuario!</h3>
+            <h3 className="text-primary mb-1">Hola, {usuario}!</h3>
             <p>Bienvenido a tu cuenta Valorar.ar</p>
           </div>
           {/* <Flex className="py-3">

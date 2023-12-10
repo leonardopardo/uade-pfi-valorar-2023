@@ -19,14 +19,14 @@ class AuthService {
 
     const response = await fetch(`${this.service}/auth/login`, options);
 
-    if (response.status !== 200) throw new Error('Error al iniciar sesión.');
+    if (response.status !== 200) throw new Error("Error al iniciar sesión.");
 
     const result = await response.json();
 
     return result;
   }
 
-  async IsValid(username, token){
+  async IsValid(username, token) {
     const body = JSON.stringify({
       username: username,
       token: token,
@@ -40,9 +40,10 @@ class AuthService {
       body: body,
     };
 
-    const response = await fetch(`${this.service}/auth/valid`, options);
+    const response = await fetch(`${this.service}/auth/validate`, options);
 
-    if (response.status !== 200) throw new Error('La información de sesión no es válida.');
+    if (response.status !== 200)
+      throw new Error("La información de sesión no es válida.");
 
     const result = await response.json();
 
