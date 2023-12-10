@@ -1,6 +1,6 @@
 class AuthService {
   constructor() {
-    this.service = process.env.REACT_APP_API_URL;
+    this.service = "https://valorar.ar/api";
   }
 
   async Login(username, password) {

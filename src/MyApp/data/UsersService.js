@@ -1,6 +1,6 @@
 class UserService {
   constructor(service) {
-    this.service = process.env.REACT_APP_API_URL;
+    this.service = "https://valorar.ar/api";
   }
 
   async RegisterUser(data){
@@ -22,7 +22,7 @@ class UserService {
       body: body
     };
 
-    const response = await fetch(`http://localhost:9000/user`, options);
+    const response = await fetch(`${this.service}/user`, options);
 
     if(response.status !== 201) throw new Error('Register failed');
 
