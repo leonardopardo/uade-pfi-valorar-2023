@@ -6,10 +6,10 @@ import LoginForm from 'components/authentication/LoginForm';
 const Login = () => (
   <>
     <Flex justifyContent="between" alignItems="center" className="mb-2">
-      <h5>Log in</h5>
-      <p className="fs--1 text-600 mb-0">
+      <h5>Ingresar</h5>
+      {/* <p className="fs--1 text-600 mb-0">
         or <Link to="/authentication/simple/register">Create an account</Link>
-      </p>
+      </p> */}
     </Flex>
     <LoginForm />
   </>

@@ -3,6 +3,11 @@ import MyAppLayout from "MyApp/layouts/MyAppLayout";
 import MyAuthLayout from "MyApp/layouts/MyAuthLauout";
 import MyErrorLayout from "MyApp/layouts/MyErrorLayout";
 import MyWebLayout from "MyApp/layouts/MyWebLayout";
+import CuentaPage from "MyApp/pages/account/CuentaPage";
+import PagosPage from "MyApp/pages/account/PagosPage";
+import AuthenticationPage from "MyApp/pages/api/AuthenticationPage";
+import EstimacionPage from "MyApp/pages/api/EstimacionPage";
+import SentimientoPage from "MyApp/pages/api/SentimientoPage";
 import ForgotPage from "MyApp/pages/auth/ForgotPage";
 import LoginPage from "MyApp/pages/auth/LoginPage";
 import LogoutPage from "MyApp/pages/auth/LogoutPage";
@@ -16,7 +21,7 @@ import Error500Page from "MyApp/pages/errors/Error500Page";
 import FaqPage from "MyApp/pages/help/FaqPage";
 import TutorialsPage from "MyApp/pages/help/TutorialsPage";
 import EstadisticasPage from "MyApp/pages/home/EstadisticasPage";
-import PrincipalPage from "MyApp/pages/home/PrincipalPage";
+import AdminHomePage from "MyApp/pages/home/HomePage";
 import MessagesListPage from "MyApp/pages/mensajes/MessagesListPage";
 import NotificationListPage from "MyApp/pages/notification/NotificationListPage";
 import RoleListPage from "MyApp/pages/role/RoleListPage";
@@ -54,9 +59,18 @@ const MyRoutes = () => {
           <Route path="restore" element={<RestorePage />} />
         </Route>
         <Route path="/admin" element={<MyAppLayout />}>
-          <Route path="panel">
-            <Route path="principal" element={<PrincipalPage />} />
+          <Route path="">
+            <Route path="" element={<AdminHomePage />} />
             <Route path="estadisticas" element={<EstadisticasPage />} />
+          </Route>
+          <Route path="aplicacion">
+            <Route path="autenticacion" element={<AuthenticationPage />} />
+            <Route path="estimacion" element={<EstimacionPage />} />
+            <Route path="sentimiento" element={<SentimientoPage />} />
+          </Route>
+          <Route path="cuenta">
+            <Route path="mi-cuenta" element={<CuentaPage />} />
+            <Route path="pagos" element={<PagosPage />} />
           </Route>
           <Route path="mensajes">
             <Route path="listar" element={<MessagesListPage />} />

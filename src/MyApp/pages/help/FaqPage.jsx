@@ -1,17 +1,9 @@
-import React from 'react';
-import { Card, Row, Col } from 'react-bootstrap';
+import FaqBasic from "MyApp/components/faq/faq-basic/FaqBasic";
+import React from "react";
 const FaqPage = () => {
   return (
     <>
-      <Card>
-        <Card.Body>
-          <Row>
-            <Col>
-              <p>FAQ Page</p>
-            </Col>
-          </Row>
-        </Card.Body>
-      </Card>
+      <FaqBasic />
     </>
   );
 };

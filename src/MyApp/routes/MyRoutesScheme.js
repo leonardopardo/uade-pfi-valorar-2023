@@ -1,57 +1,69 @@
 export const dashboardRoutes = {
-  label: "Panel Principal",
+  label: "Lo Básico",
   labelDisable: false,
   children: [
     {
-      name: "Panel Principal",
+      name: "Comenzando",
+      to: "/admin",
+      icon: "rocket",
+      exact: true,
       active: true,
-      icon: "chart-pie",
-      children: [
-        {
-          name: "Resumen",
-          to: "/admin/panel/principal",
-          exact: true,
-          active: true,
-        },
-        {
-          name: "Estadísticas",
-          to: "/admin/panel/estadisticas",
-          exact: true,
-          active: true,
-        },
-      ],
+    },
+    {
+      name: "Estadísticas",
+      to: "/admin/estadisticas",
+      icon: "chart-line",
+      exact: true,
+      active: true,
     },
   ],
 };
 
-export const settingsRoutes = {
-  label: "Configuración",
+export const apiRoutes = {
+  label: "La API",
   labelDisable: false,
   children: [
     {
-      name: "Configuración",
+      name: "Autenticación",
+      to: "/admin/aplicacion/autenticacion",
+      icon: "puzzle-piece",
+      exact: true,
       active: true,
+    },
+    {
+      name: "Estimacion",
+      to: "/admin/aplicacion/estimacion",
+      icon: "poll",
+      exact: true,
+      active: true,
+    },
+    {
+      name: "Sentimiento",
+      to: "/admin/aplicacion/sentimiento",
+      icon: "fire",
+      exact: true,
+      active: true,
+    },
+  ],
+};
+
+export const accountRoutes = {
+  label: "Cuenta",
+  labelDisable: false,
+  children: [
+    {
+      name: "Mi Cuenta",
+      to: "/admin/cuenta/mi-cuenta",
       icon: "cog",
-      children: [
-        {
-          name: "Mis Usuarios",
-          to: "/admin/usuarios/listar",
-          exact: true,
-          active: true,
-        },
-        {
-          name: "Mis Permisos",
-          to: "/admin/roles/listar",
-          exact: true,
-          active: true,
-        },
-        {
-          name: "Mis Notificaciones",
-          to: "/admin/notificaciones/listar",
-          exact: true,
-          active: true,
-        },
-      ],
+      exact: true,
+      active: true,
+    },
+    {
+      name: "Mis Pagos",
+      to: "/admin/cuenta/pagos",
+      icon: "file-alt",
+      exact: true,
+      active: true,
     },
   ],
 };
@@ -65,12 +77,6 @@ export const helpRoutes = {
       active: true,
       icon: "info-circle",
       children: [
-        {
-          name: "Tutoriales",
-          to: "/admin/ayuda/tutoriales",
-          exact: true,
-          active: true,
-        },
         {
           name: "Faqs",
           to: "/admin/ayuda/faqs",
@@ -108,4 +114,24 @@ export const webmasterRoutes = {
   ],
 };
 
-export default [dashboardRoutes, settingsRoutes, helpRoutes, webmasterRoutes];
+export const callbacksRoutes = {
+  label: "Callbacks",
+  labelDisable: false,
+  children: [
+    {
+      name: "Callbacks",
+      active: true,
+      icon: "code",
+      children: [
+        {
+          name: "chekcout",
+          to: "/admin/callbacks/checkout",
+          exact: true,
+          active: true,
+        },
+      ],
+    },
+  ],
+};
+
+export default [dashboardRoutes, apiRoutes, accountRoutes, helpRoutes];
