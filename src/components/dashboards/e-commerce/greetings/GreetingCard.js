@@ -20,7 +20,7 @@ const GreetingCard = ({ notifications }) => {
           }}
         />
         <div className="position-relative z-index-2">
-          <div className="p-5">
+          <div className="p-4">
             <h3 className="text-primary mb-1">Hola, Usuario!</h3>
             <p>Bienvenido a tu cuenta Valorar.ar</p>
           </div>

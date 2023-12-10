@@ -59,8 +59,8 @@ const MyRoutes = () => {
           <Route path="restore" element={<RestorePage />} />
         </Route>
         <Route path="/admin" element={<MyAppLayout />}>
-          <Route path="panel">
-            <Route path="comenzando" element={<AdminHomePage />} />
+          <Route path="">
+            <Route path="" element={<AdminHomePage />} />
             <Route path="estadisticas" element={<EstadisticasPage />} />
           </Route>
           <Route path="aplicacion">

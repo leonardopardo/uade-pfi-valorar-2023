@@ -4,14 +4,14 @@ export const dashboardRoutes = {
   children: [
     {
       name: "Comenzando",
-      to: "/admin/panel/comenzando",
+      to: "/admin",
       icon: "rocket",
       exact: true,
       active: true,
     },
     {
       name: "Estadísticas",
-      to: "/admin/panel/estadisticas",
+      to: "/admin/estadisticas",
       icon: "chart-line",
       exact: true,
       active: true,

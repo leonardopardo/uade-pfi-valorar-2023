@@ -1,6 +1,32 @@
 class UserService {
   constructor(service) {
-    this.service = "";
+    this.service = process.env.REACT_APP_API_URL;
+  }
+
+  async RegisterUser(data){
+
+    const registerObject = {
+      username: data.email,
+      company_name: data.company,
+      name: data.name,
+      password: data.password
+    }
+
+    const body = JSON.stringify(registerObject);
+
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: body
+    };
+
+    const response = await fetch(`http://localhost:9000/user`, options);
+
+    if(response.status !== 201) throw new Error('Register failed');
+
+    return response.text();
   }
 
   GetUsers(limit = 0, offset = 0) {
@@ -55,16 +81,6 @@ class UserService {
       );
     });
   }
-
-  GetUser() {}
-
-  UpdateUser() {}
-
-  DisableUser() {}
-
-  EnableUser() {}
-
-  DeleteUser() {}
 }
 
 export default new UserService();
