@@ -24,7 +24,7 @@ const GreetingCard = ({ notifications }) => {
             <h3 className="text-primary mb-1">Hola, Jonathan!</h3>
             <p>Esto es lo que sucede en tu cuenta en el día de hoy.</p>
           </div>
-          <Flex className="py-3">
+          {/* <Flex className="py-3">
             <div className="pe-3">
               <p className="text-600 fs--1 fw-medium">Cantidad de Consultas</p>
               <h4 className="text-800 mb-0">1409</h4>
@@ -33,7 +33,7 @@ const GreetingCard = ({ notifications }) => {
               <p className="text-600 fs--1">Cantidad de Propiedades Verificadas</p>
               <h4 className="text-800 mb-0">349</h4>
             </div>
-          </Flex>
+          </Flex> */}
         </div>
       </Card.Header>
       {/* <Card.Body className="p-0">

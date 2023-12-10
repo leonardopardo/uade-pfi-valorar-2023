@@ -1,40 +1,44 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import { Button, Form, Row, Col } from 'react-bootstrap';
-import Divider from 'components/common/Divider';
-import SocialAuthButtons from './SocialAuthButtons';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { Button, Form, Row, Col, Toast } from "react-bootstrap";
+import Divider from "components/common/Divider";
+import SocialAuthButtons from "./SocialAuthButtons";
+import AuthService from "MyApp/data/AuthService";
 
 const LoginForm = ({ hasLabel, layout }) => {
   // State
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-    remember: false
+    email: "",
+    password: "",
+    remember: false,
   });
 
   // Handler
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    toast.success(`Logged in as ${formData.email}`, {
-      theme: 'colored'
-    });
+    try{
+      const validation = await AuthService.Login(formData.email, formData.password);
+      alert(validation);
+    }catch(err){
+      console.log(err);
+    }
   };
 
-  const handleFieldChange = e => {
+  const handleFieldChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3">
-        {hasLabel && <Form.Label>Email address</Form.Label>}
+        {hasLabel && <Form.Label>Email</Form.Label>}
         <Form.Control
-          placeholder={!hasLabel ? 'Email address' : ''}
+          placeholder={!hasLabel ? "Email" : ""}
           value={formData.email}
           name="email"
           onChange={handleFieldChange}
@@ -45,7 +49,7 @@ const LoginForm = ({ hasLabel, layout }) => {
       <Form.Group className="mb-3">
         {hasLabel && <Form.Label>Password</Form.Label>}
         <Form.Control
-          placeholder={!hasLabel ? 'Password' : ''}
+          placeholder={!hasLabel ? "Password" : ""}
           value={formData.password}
           name="password"
           onChange={handleFieldChange}
@@ -60,14 +64,14 @@ const LoginForm = ({ hasLabel, layout }) => {
               type="checkbox"
               name="remember"
               checked={formData.remember}
-              onChange={e =>
+              onChange={(e) =>
                 setFormData({
                   ...formData,
-                  remember: e.target.checked
+                  remember: e.target.checked,
                 })
               }
             />
-            <Form.Check.Label className="mb-0">Remember Me</Form.Check.Label>
+            <Form.Check.Label className="mb-0">Recordarme</Form.Check.Label>
           </Form.Check>
         </Col>
 
@@ -76,7 +80,7 @@ const LoginForm = ({ hasLabel, layout }) => {
             className="fs--1 mb-0"
             to={`/authentication/${layout}/forgot-password`}
           >
-            Forget Password?
+            Olvidó su Password?
           </Link>
         </Col>
       </Row>
@@ -92,21 +96,21 @@ const LoginForm = ({ hasLabel, layout }) => {
         </Button>
       </Form.Group>
 
-      <Divider className="mt-4">or log in with</Divider>
+      {/* <Divider className="mt-4">or log in with</Divider> */}
 
-      <SocialAuthButtons />
+      {/* <SocialAuthButtons /> */}
     </Form>
   );
 };
 
 LoginForm.propTypes = {
   layout: PropTypes.string,
-  hasLabel: PropTypes.bool
+  hasLabel: PropTypes.bool,
 };
 
 LoginForm.defaultProps = {
-  layout: 'simple',
-  hasLabel: false
+  layout: "simple",
+  hasLabel: false,
 };
 
 export default LoginForm;

@@ -34,9 +34,9 @@ const RegistrationForm = ({ hasLabel }) => {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3">
-        {hasLabel && <Form.Label>Name</Form.Label>}
+        {hasLabel && <Form.Label>Nombre</Form.Label>}
         <Form.Control
-          placeholder={!hasLabel ? 'Name' : ''}
+          placeholder={!hasLabel ? 'Nombre' : ''}
           value={formData.name}
           name="name"
           onChange={handleFieldChange}
@@ -45,9 +45,9 @@ const RegistrationForm = ({ hasLabel }) => {
       </Form.Group>
 
       <Form.Group className="mb-3">
-        {hasLabel && <Form.Label>Email address</Form.Label>}
+        {hasLabel && <Form.Label>Email</Form.Label>}
         <Form.Control
-          placeholder={!hasLabel ? 'Email address' : ''}
+          placeholder={!hasLabel ? 'Email' : ''}
           value={formData.email}
           name="email"
           onChange={handleFieldChange}
@@ -67,9 +67,9 @@ const RegistrationForm = ({ hasLabel }) => {
           />
         </Form.Group>
         <Form.Group as={Col} sm={6}>
-          {hasLabel && <Form.Label>Confirm Password</Form.Label>}
+          {hasLabel && <Form.Label>Confirmar Password</Form.Label>}
           <Form.Control
-            placeholder={!hasLabel ? 'Confirm Password' : ''}
+            placeholder={!hasLabel ? 'Confirmar Password' : ''}
             value={formData.confirmPassword}
             name="confirmPassword"
             onChange={handleFieldChange}
@@ -92,8 +92,8 @@ const RegistrationForm = ({ hasLabel }) => {
             }
           />
           <Form.Check.Label className="form-label">
-            I accept the <Link to="#!">terms</Link> and{' '}
-            <Link to="#!">privacy policy</Link>
+            Aceptos los <Link to="/terminos">terminos</Link> y{' '}
+            <Link to="/privacidad">políticas de privacidad</Link>
           </Form.Check.Label>
         </Form.Check>
       </Form.Group>
@@ -110,12 +110,12 @@ const RegistrationForm = ({ hasLabel }) => {
             !formData.isAccepted
           }
         >
-          Register
+          Registrarme
         </Button>
       </Form.Group>
-      <Divider>or register with</Divider>
+      {/* <Divider>or register with</Divider> */}
 
-      <SocialAuthButtons />
+      {/* <SocialAuthButtons /> */}
     </Form>
   );
 };

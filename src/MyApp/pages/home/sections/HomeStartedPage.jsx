@@ -11,7 +11,7 @@ const HomeStartedPage = () => {
         <FalconCardHeader title="Comience con los conceptos básicos de la API" />
         <Card.Body>
           <Card.Title>Empezando</Card.Title>
-          <Col xs={12} sm={10} md={8}>
+          <Col xs={12} sm={10} md={12}>
             <p>Bienvenido a la versión 1 de la API Valorar.ar.</p>
             <p>
               La API de Valorar.ar es una API RESTful que utiliza JSON para
@@ -39,16 +39,29 @@ const HomeStartedPage = () => {
                 la solicitud.
               </li>
             </ul>
-            <FalconEditor
-              code={`curl --location 'http://localhost:9000/auth/login' \
+            <h7>Authentication request</h7>
+            <pre>
+              <FalconEditor className="mb-4"
+                code={`curl --location 'http://localhost:9000/auth/login' \
 --header 'Content-Type: application/json' \
 --data '{
     "username": "test",
     "password": "test"
 }'`}
-              language="bash"
-              hidePreview
-            />
+                language="bash"
+                hidePreview
+              />
+            </pre>
+            <h7>Respuesta</h7>
+            <pre>
+              <FalconEditor
+                code={`{ "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTY3YmJhNjM5ZWQwNDMyZmE4OWUwYTIiLCJpYXQiOjE3MDIxNjc0OTcsImV4cCI6MTcwMjE4OTA5N30.1CZYq7sDDxdFlK6_KjiF00aj1MkCrhDbggKJqXZpE4U"}`}
+                language="json"
+                hidePreview
+                copy={true}
+              />
+            </pre>
+            <small>Utililce el token para relalizar nuevas consultas. El Token tiene una vigencia de 6 hs. debe revalidarlo para seguir haciendo consultas.</small>
           </Col>
         </Card.Body>
       </Card>
