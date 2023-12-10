@@ -4,6 +4,12 @@ import { Dropdown } from 'react-bootstrap';
 import { FiUser } from 'react-icons/fi';
 
 const ProfileDropdown = () => {
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    window.location.href = '/';
+  }
+
   return (
     <Dropdown navbar={true} as="li">
       <Dropdown.Toggle
@@ -31,7 +37,7 @@ const ProfileDropdown = () => {
           <Dropdown.Item as={Link} to="/user/settings">
             Settings
           </Dropdown.Item> */}
-          <Dropdown.Item as={Link} to="/authentication/card/logout">
+          <Dropdown.Item onClick={handleLogout}>
             Salir
           </Dropdown.Item>
         </div>

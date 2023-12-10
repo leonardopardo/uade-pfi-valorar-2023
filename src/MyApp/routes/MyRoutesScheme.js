@@ -24,7 +24,7 @@ export const apiRoutes = {
   labelDisable: false,
   children: [
     {
-      name: "Aplicación",
+      name: "Autenticación",
       to: "/admin/aplicacion/autenticacion",
       icon: "puzzle-piece",
       exact: true,
