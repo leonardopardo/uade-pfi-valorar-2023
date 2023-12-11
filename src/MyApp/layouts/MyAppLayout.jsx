@@ -22,12 +22,10 @@ const MyAppLayout = () => {
       if (isValid) {
         setIsAuthenticate(isValid);
       } else {
-        alert('')
         redirect();
       }
     } catch (err) {
-      alert(err);
-      redirect();
+      redirect()
     }
   };
 

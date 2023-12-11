@@ -36,8 +36,7 @@ class AuthService {
     const options = {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
       },
       body: body,
     };
