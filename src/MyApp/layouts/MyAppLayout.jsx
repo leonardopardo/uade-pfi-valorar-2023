@@ -6,8 +6,6 @@ import { Container } from "react-bootstrap";
 import NavbarTop from "MyApp/components/navbar/top/NavbarTop";
 import Footer from "components/footer/Footer";
 import AuthService from "MyApp/data/AuthService";
-import is from "is_js";
-import { set } from "react-hook-form";
 
 const MyAppLayout = () => {
   const [isAuthenticate, setIsAuthenticate] = React.useState(false);
@@ -24,6 +22,7 @@ const MyAppLayout = () => {
       if (isValid) {
         setIsAuthenticate(isValid);
       } else {
+        alert('')
         redirect();
       }
     } catch (err) {
@@ -49,9 +48,7 @@ const MyAppLayout = () => {
             </div>
           </Container>
         ) : (
-          <>
-            <h6>No Autorizado</h6>
-          </>
+          null
         )}
       </main>
     </>
