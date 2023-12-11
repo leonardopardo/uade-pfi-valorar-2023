@@ -8,7 +8,6 @@ import {
   Button,
   Card,
 } from "react-bootstrap";
-import imageHeader from "../../../../assets/img/generic/bg-7.jpg";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import MyButtonSpinner from "MyApp/my-components/MyButtonSpinner";
@@ -29,8 +28,9 @@ import BarriosService from "MyApp/data/BarriosService";
 import PriceService from "MyApp/data/PriceService";
 import { geocodeByPlaceId } from "react-google-places-autocomplete";
 import DemoValidationForm from "../validations/DemoValidationForm";
+import ResponsePrice from "./ResponsePrice";
 
-const DemoForm = () => {
+const CotizadorForm = () => {
   const [loading, setLoading] = React.useState(false);
 
   const [featureValue, setFeatureValue] = useState([]);
@@ -173,7 +173,7 @@ const DemoForm = () => {
             <Card.Body>
               <Card.Title className="mb-4">
                 <h4 className="text-primary fw-bold mb-0">
-                  Demo <br />
+                  Cotizar <br />
                   <span className="text-info fw-medium">
                     Probá nuestro sistema de valuación de propiedades en tiempo
                     real.
@@ -385,8 +385,20 @@ const DemoForm = () => {
           </Card>
         </Col>
       </Row>
+      <Row>
+        <Col className="mb-5">
+          {price && inputValues && geo && (
+            <ResponsePrice
+              price={price}
+              sentiment={sentiment}
+              data={inputValues}
+              geo={geo}
+            />
+          )}
+        </Col>
+      </Row>
     </>
   );
 };
 
-export default DemoForm;
+export default CotizadorForm;

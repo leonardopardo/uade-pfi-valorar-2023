@@ -10,8 +10,8 @@ export const dashboardRoutes = {
       active: true,
     },
     {
-      name: "Demo",
-      to: "/admin/prueba",
+      name: "Cotizador",
+      to: "/admin/cotizador",
       icon: "chart-line",
       exact: true,
       active: true,

@@ -20,7 +20,7 @@ import Error404Page from "MyApp/pages/errors/Error404Page";
 import Error500Page from "MyApp/pages/errors/Error500Page";
 import FaqPage from "MyApp/pages/help/FaqPage";
 import TutorialsPage from "MyApp/pages/help/TutorialsPage";
-import PruebaPage from "MyApp/pages/home/PruebaPage";
+import CotizadorPage from "MyApp/pages/home/CotizadorPage";
 import AdminHomePage from "MyApp/pages/home/HomePage";
 import MessagesListPage from "MyApp/pages/mensajes/MessagesListPage";
 import NotificationListPage from "MyApp/pages/notification/NotificationListPage";
@@ -62,7 +62,7 @@ const MyRoutes = () => {
         <Route path="/admin" element={<MyAppLayout />}>
           <Route path="">
             <Route path="" element={<AdminHomePage />} />
-            <Route path="prueba" element={<PruebaPage />} />
+            <Route path="cotizador" element={<CotizadorPage />} />
           </Route>
           <Route path="aplicacion">
             <Route path="autenticacion" element={<AuthenticationPage />} />

@@ -19,6 +19,19 @@ const StatisticsCards = ({ suscription, uses }) => {
     "Diciembre",
   ];
 
+  const cantidadPeticiones = (suscription) => {
+    switch (suscription) {
+      case "basic":
+        return 100;
+      case "pro":
+        return 500;
+      case "full":
+        return "Ilimitado";
+      default:
+        return "No definido";
+    }
+  }
+
   const title = "Consultas Mensuales (" + months[new Date().getMonth()] + ")";
 
   const statsData = [
@@ -26,7 +39,7 @@ const StatisticsCards = ({ suscription, uses }) => {
       title: title,
       value: uses,
       decimal: false,
-      suffix: "",
+      suffix: " / " + cantidadPeticiones(suscription),
       prefix: "",
       valueClassName: "text-info",
       badgeBg: "info",
