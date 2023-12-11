@@ -27,6 +27,7 @@ const MyAppLayout = () => {
         redirect();
       }
     } catch (err) {
+      alert(err);
       redirect();
     }
   };
