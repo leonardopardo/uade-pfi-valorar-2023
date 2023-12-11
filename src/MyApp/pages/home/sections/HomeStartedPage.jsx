@@ -13,6 +13,7 @@ const HomeStartedPage = () => {
           <Card.Title>Empezando</Card.Title>
           <Col xs={12} sm={10} md={12}>
             <p>Bienvenido a la versión 1 de la API Valorar.ar.</p>
+            <hr />
             <p>
               La API de Valorar.ar es una API RESTful que utiliza JSON para
               devolver respuestas. Actualmente, la API solo devuelve datos en
@@ -43,8 +44,8 @@ const HomeStartedPage = () => {
             <pre className="small">
               <FalconEditor
                 className="mb-4"
-                code={`curl --location 'http://localhost:9000/auth/login' \
---header 'Content-Type: application/json' \
+                code={`curl --location 'http://localhost:9000/auth/login'
+--header 'Content-Type: application/json'
 --data '{
     "username": "test",
     "password": "test"

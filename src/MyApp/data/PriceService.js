@@ -1,6 +1,6 @@
 class PriceService {
   constructor() {
-    // this.service = `http://localhost:9000`;
+    //this.service = `http://localhost:9000`;
     this.service = `https://valorar.ar/api/rent`;
   }
 

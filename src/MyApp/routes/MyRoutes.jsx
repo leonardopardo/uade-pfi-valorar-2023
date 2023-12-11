@@ -20,7 +20,7 @@ import Error404Page from "MyApp/pages/errors/Error404Page";
 import Error500Page from "MyApp/pages/errors/Error500Page";
 import FaqPage from "MyApp/pages/help/FaqPage";
 import TutorialsPage from "MyApp/pages/help/TutorialsPage";
-import EstadisticasPage from "MyApp/pages/home/EstadisticasPage";
+import PruebaPage from "MyApp/pages/home/PruebaPage";
 import AdminHomePage from "MyApp/pages/home/HomePage";
 import MessagesListPage from "MyApp/pages/mensajes/MessagesListPage";
 import NotificationListPage from "MyApp/pages/notification/NotificationListPage";
@@ -36,6 +36,7 @@ import UserEditPage from "MyApp/pages/user/UserEditPage";
 import UserListPage from "MyApp/pages/user/UserListPage";
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
 //#endregion
 
 const MyRoutes = () => {
@@ -61,7 +62,7 @@ const MyRoutes = () => {
         <Route path="/admin" element={<MyAppLayout />}>
           <Route path="">
             <Route path="" element={<AdminHomePage />} />
-            <Route path="estadisticas" element={<EstadisticasPage />} />
+            <Route path="prueba" element={<PruebaPage />} />
           </Route>
           <Route path="aplicacion">
             <Route path="autenticacion" element={<AuthenticationPage />} />

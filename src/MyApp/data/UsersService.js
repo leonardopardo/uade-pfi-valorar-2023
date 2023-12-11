@@ -1,6 +1,6 @@
 class UserService {
   constructor(service) {
-    // this.service = "http://localhost:9000";
+    //this.service = "http://localhost:9000";
     this.service = "https://valorar.ar/api";
   }
 
@@ -28,6 +28,47 @@ class UserService {
     if(response.status !== 201) throw new Error('Register failed');
 
     return response.text();
+  }
+
+  async GetHistory(username) {
+    const body = JSON.stringify({username: username});
+
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: body
+    };
+
+    const response = await fetch(`${this.service}/user/history`, options);
+
+    if(response.status !== 200) throw new Error('Get history failed');
+
+    return response.json();
+  }
+
+  async GetUsage(username) {
+    const body = JSON.stringify({username: username});
+    const token = localStorage.getItem('token');
+
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Authorization": "Bearer " + token,
+      },
+      body: body
+    };
+
+    const response = await fetch(`${this.service}/user/usage`, options);
+
+    if(response.status !== 200) throw new Error('Get usage failed');
+
+    return await response.json();
   }
 
   GetUsers(limit = 0, offset = 0) {
